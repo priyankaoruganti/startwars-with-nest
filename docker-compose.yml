@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+  nestapp:
+    container_name: starwars-with-nest
+    image: poruganti/starwars-with-nest:1.0.0
+    build: .
+    ports:
+      - 3000:3000
+    environment:
+      - PG_HOST=db
+      - PG_USER=postgres
+      - PG_PASSWORD=
+      - PG_DB=postgres
+      - PG_PORT=5432
+    depends_on:
+      - db
+  db:
+    container_name: db
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=
+      - POSTGRES_DB=postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata: {}
