@@ -32,6 +32,9 @@ export class People {
   @Column()
   homeworld: string;
 
+  @Column()
+  films: string;
+
   //     "films": [
   //         "https://swapi.dev/api/films/1/",
   //         "https://swapi.dev/api/films/2/",

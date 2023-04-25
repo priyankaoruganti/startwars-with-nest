@@ -21,8 +21,8 @@ export class PeopleService {
   }
 
   //create
-  async create(person: People): Promise<People> {
-    const newPerson = this.peopleRespository.create(person);
+  async create(people: People): Promise<People> {
+    const newPerson = this.peopleRespository.create(people);
     return await this.peopleRespository.save(newPerson);
   }
 }

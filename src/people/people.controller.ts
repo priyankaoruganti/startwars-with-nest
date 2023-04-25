@@ -15,12 +15,7 @@ export class PeopleController {
   //get one person
   @Get(':id')
   async findOne(@Param('id') id: number): Promise<People> {
-    const person = await this.peopleService.findOne(id);
-    if (!person) {
-      throw new Error('Person not found');
-    } else {
-      return person;
-    }
+    return await this.peopleService.findOne(id);
   }
 
   //create a person
