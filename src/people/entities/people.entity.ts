@@ -1,39 +1,51 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import {Entity, Column, PrimaryGeneratedColumn,} from 'typeorm';
+import {ApiProperty} from "@nestjs/swagger";
 
 @Entity()
 export class People {
+  @ApiProperty({required: true})
   @PrimaryGeneratedColumn()
   id: number;
 
+  @ApiProperty({required: true})
   @Column()
   name: string;
 
+  @ApiProperty({required: false})
   @Column()
   height: string;
 
+  @ApiProperty({required: false})
   @Column()
   mass: string;
 
+  @ApiProperty({required: false})
   @Column()
   hair_color: string;
 
+  @ApiProperty({required: false})
   @Column()
   skin_color: string;
 
+  @ApiProperty({required: false})
   @Column()
   eye_color: string;
 
+  @ApiProperty({required: false})
   @Column()
   birth_year: string;
 
+  @ApiProperty({required: false})
   @Column()
   gender: string;
 
+  @ApiProperty({required: false})
   @Column()
   homeworld: string;
 
-  @Column()
-  films: string;
+  @ApiProperty({required: false})
+  @Column({nullable: true})
+  films?: string;
 
   //     "films": [
   //         "https://swapi.dev/api/films/1/",
