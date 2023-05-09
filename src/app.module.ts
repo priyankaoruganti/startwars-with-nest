@@ -11,10 +11,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     PeopleModule,
     TypeOrmModule.forRoot({
       type: 'postgres', // type of our database
-      host: 'localhost', // database host
+      host: 'db', // database host
       port: 5432, // database host
       username: 'postgres', // username
-      password: '', // user password
+      password: 'postgres', // user password
       database: 'postgres', // name of our database,
       autoLoadEntities: true, // models will be loaded automatically
       synchronize: true, // your entities will be synced with the database(recommended: disable in prod)
