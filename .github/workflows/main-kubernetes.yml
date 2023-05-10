@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: starwars-nest-project-demo
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      starwars: web
+  template:
+    metadata:
+      labels:
+        starwars: web
+    spec:
+      containers:
+        - name: startwars-nest-example
+          image: priyankaoruganti/startwars-with-nest:latest
+          imagePullPolicy: IfNotPresent
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: starwars-nest-entrypoint
+  namespace: default
+spec:
+  type: NodePort
+  selector:
+    starwars: web
+  ports:
+    - port: 3000
+      targetPort: 3000
+      nodePort: 30001
